@@ -49,6 +49,7 @@ if ($_SESSION['ventas']==1)
                             <th>Cliente</th>
                             <th>Usuario</th>
                             <th>Documento</th>
+                            <th>Tipo Venta</th>
                             <th>Número</th>
                             <th>Total Venta</th>
                             <th>Estado</th>
@@ -71,11 +72,18 @@ if ($_SESSION['ventas']==1)
                             <label>Fecha(*):</label>
                             <input type="date" class="form-control" name="fecha_hora" id="fecha_hora" required="">
                           </div>
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                          <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <label>Tipo Comprobante(*):</label>
                             <select name="tipo_comprobante" id="tipo_comprobante" class="form-control selectpicker" required="">
                               <option value="Ticket">Ticket</option>
                                <option value="Factura">Factura</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <label>Tipo Venta(*):</label>
+                            <select name="tipo_venta" id="tipo_venta" class="form-control selectpicker" required="">
+                              <option value="Contado">Contado</option>
+                               <option value="Credito">Credito</option>
                             </select>
                           </div>
                           <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">

@@ -2,9 +2,9 @@
 if (strlen(session_id()) < 1) 
   session_start();
 
-require_once "../modelos/Venta.php";
+require_once "../modelos/Credito.php";
 
-$venta=new Venta();
+$venta=new Credito();
 
 $idventa=isset($_POST["idventa"])? limpiarCadena($_POST["idventa"]):"";
 $idcliente=isset($_POST["idcliente"])? limpiarCadena($_POST["idcliente"]):"";
@@ -89,8 +89,7 @@ switch ($_GET["op"]){
  				"2"=>$reg->cliente,
  				"3"=>$reg->usuario,
 				 "4"=>$reg->tipo_comprobante,
-				 "5"=>($reg->tipo_venta=='Credito')?'<span class="label bg-blue">CREDITO</span>':
- 				'<span class="label bg-green">CONTADO</span>',
+				 "5"=>$reg->tipo_venta, 
  				"6"=>$reg->serie_comprobante.'-'.$reg->num_comprobante,
  				"7"=>$reg->total_venta,
  				"8"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':

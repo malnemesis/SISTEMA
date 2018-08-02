@@ -37,14 +37,8 @@ function limpiar()
     $('#fecha_hora').val(today);
 
     //Marcamos el primer tipo_documento
-    $("#tipo_comprobante").val("Ticket");
+    $("#tipo_comprobante").val("Boleta");
 	$("#tipo_comprobante").selectpicker('refresh');
-
-    //Marcamos el primer tipo_venta
-    $("#tipo_venta").val("Contado");
-	$("#tipo_venta").selectpicker('refresh');
-
-	
 }
 
 //Función mostrar formulario
@@ -95,7 +89,7 @@ function listar()
 		        ],
 		"ajax":
 				{
-					url: '../ajax/venta.php?op=listar',
+					url: '../ajax/credito.php?op=listar',
 					type : "get",
 					dataType : "json",						
 					error: function(e){
@@ -109,31 +103,6 @@ function listar()
 }
 
 
-//Función ListarArticulos
-function listarArticulos()
-{
-	tabla=$('#tblarticulos').dataTable(
-	{
-		"aProcessing": true,//Activamos el procesamiento del datatables
-	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
-	    dom: 'Bfrtip',//Definimos los elementos del control de tabla
-	    buttons: [		          
-		            
-		        ],
-		"ajax":
-				{
-					url: '../ajax/venta.php?op=listarArticulosVenta',
-					type : "get",
-					dataType : "json",						
-					error: function(e){
-						console.log(e.responseText);	
-					}
-				},
-		"bDestroy": true,
-		"iDisplayLength": 5,//Paginación
-	    "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
-	}).DataTable();
-}
 //Función para guardar o editar
 
 function guardaryeditar(e)
@@ -162,17 +131,13 @@ function guardaryeditar(e)
 
 function mostrar(idventa)
 {
-	$.post("../ajax/venta.php?op=mostrar",{idventa : idventa}, function(data, status)
+	$.post("../ajax/credito.php?op=mostrar",{idventa : idventa}, function(data, status)
 	{
 		data = JSON.parse(data);		
 		mostrarform(true);
 
 		$("#idcliente").val(data.idcliente);
-		$("#idcliente").selectpicker('refresh');
 		$("#tipo_comprobante").val(data.tipo_comprobante);
-		$("#tipo_comprobante").selectpicker('refresh');
-		$("#tipo_venta").val(data.tipo_venta);
-		$("#tipo_venta").selectpicker('refresh');
 		$("#serie_comprobante").val(data.serie_comprobante);
 		$("#num_comprobante").val(data.num_comprobante);
 		$("#fecha_hora").val(data.fecha);
