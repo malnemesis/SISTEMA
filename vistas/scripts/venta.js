@@ -43,7 +43,6 @@ function limpiar()
     //Marcamos el primer tipo_venta
     $("#tipo_venta").val("Contado");
 	$("#tipo_venta").selectpicker('refresh');
-
 	
 }
 

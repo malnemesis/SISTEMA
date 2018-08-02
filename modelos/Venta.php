@@ -13,7 +13,7 @@ Class Venta
 	//Implementamos un método para insertar registros
 	public function insertar($idcliente,$idusuario,$tipo_comprobante,$tipo_venta,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$idarticulo,$cantidad,$precio_venta,$descuento)
 	{
-		$sql="INSERT INTO venta (idcliente,idusuario,tipo_comprobante,tipo_venta,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_venta,estado,total_deuda)
+		$sql="INSERT INTO venta (idcliente,idusuario,tipo_comprobante,tipo_venta,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_venta,estado)
 		VALUES ('$idcliente','$idusuario','$tipo_comprobante','$tipo_venta','$serie_comprobante','$num_comprobante','$fecha_hora','$impuesto','$total_venta','Aceptado')";
 		//return ejecutarConsulta($sql);
 		$idventanew=ejecutarConsulta_retornarID($sql);
